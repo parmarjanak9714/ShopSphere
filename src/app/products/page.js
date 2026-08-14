@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {Suspense, useEffect, useState } from "react";
 import { useCart } from "@/context/CartContext";
 import { useSearchParams } from "next/navigation";
 
-export default function Products() {
+ function ProductsContent() {
   const { addToCart } = useCart();
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
@@ -113,5 +113,12 @@ const filteredProducts = products.filter((product) => {
 )}
       </div>
     </main>
+  );
+}
+export default function Products() {
+  return (
+    <Suspense fallback={null}>
+      <ProductsContent />
+    </Suspense>
   );
 }

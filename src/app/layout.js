@@ -1,7 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
 import { CartProvider } from "@/context/CartContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 
@@ -29,7 +31,10 @@ export default function RootLayout({ children }) {
       <body className="flex flex-col">
         <ThemeProvider>
         <CartProvider>
-        <Navbar/>
+          <Suspense fallback={null}>
+            <Navbar/>
+          </Suspense>
+        
           <main className="">{children}</main> 
         <Footer/>
         </CartProvider>
