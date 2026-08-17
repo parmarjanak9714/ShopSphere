@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -10,6 +11,16 @@ import "swiper/css";
 export default function Home() {
   const textRef = useRef(null);
   const buttonRef = useRef(null);
+
+  const heroImages = [
+    "/hero_section.png",
+    "/hero_section2.png",
+    "/hero_section3.png",
+    "/hero_kichten.png",
+    "/hero_man.png",
+    "/hero_dress.png",
+    "/hero_shoose.png"
+  ];
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -40,174 +51,114 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="">
+  <main className="">
+    <section className="text-gray-600 body-font   bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
+     
+<div className="relative mx-auto w-fit p-[2px] overflow-hidden rounded-xl">
 
-      {/* ================= HERO SECTION ================= */}
-      <section className="relative w-full h-122.5 overflow-hidden bg-[#202124]">
+  {/* Moving border */}
+  <div className="absolute inset-[-100%] animate-border-spin">
+    <div className="absolute left-1/2 top-0 h-1/2 w-1/2 bg-blue-600 blur-[1px]" />
+  </div>
 
-        {/* RIGHT SIDE IMAGE */}
-        <div className="absolute top-0 right-0 w-[68%] h-full">
+  {/* H1 */}
+  <h1 className="
+    relative
+    z-10
+    rounded-[10px]
+    bg-white
+    px-5
+    pt-4
+    pb-3
+    text-center
+    text-3xl
+    font-extrabold
+    tracking-tight
+    text-gray-900
+    sm:text-4xl
+    md:text-5xl
+  ">
+    Shop
+    <span className="text-blue-600">
+      Sphere
+    </span>
+  </h1>
 
+</div>
+      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+     <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+    <Swiper
+    modules={[Autoplay]}
+    slidesPerView={1}
+    loop={true}
+    autoplay={{
+      delay: 4000,
+      disableOnInteraction: false,
+    }}
+    speed={800}
+    className="w-full">
+
+    {heroImages.map((image, index) => (
+      <SwiperSlide key={index}>
+        <div className="flex items-center justify-center">
           <Image
-            src="/section.png"
-            alt="ShopSphere Hero Background"
-            fill
-            priority
-            sizes="68vw"
-            className="object-cover object-center"
-          />
-
-          {/* IMAGE LEFT BLEND */}
-          <div className="absolute inset-0 bg-linear-to-r from-[#202124] via-[#202124]/50 via-22% to-transparent" />
-
+            src={image}
+            alt={`ShopSphere product ${index + 1}`}
+            width={720}
+            height={600}
+            priority={index === 0}
+            className="
+              w-full
+              h-auto
+              rounded-2xl
+              object-contain
+              object-center"/>
         </div>
-
-
-        {/* LEFT DARK BACKGROUND */}
-        <div className="absolute left-0 top-0 w-[45%] h-full bg-[#202124]" />
-
-
-        {/* LEFT TO RIGHT BLEND */}
-<div className="absolute inset-0 bg-linear-to-r from-[#202124] via-[#202124]/70 via-40% to-transparent z-1" />
-
-
-        {/* HERO CONTENT */}
-        <div className="relative z-2 container mx-auto px-6 md:px-12 h-full flex items-center">
-
-          <div
-            ref={textRef}
-            className="w-full max-w-150 space-y-5"
-          >
-
-            {/* BADGE */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm">
-
-              <span className="text-blue-400 text-sm font-semibold">
-                PREMIUM QUALITY
-              </span>
-
-              <span className="text-gray-400 mx-2">
-                •
-              </span>
-
-              <span className="text-blue-400 text-sm font-semibold">
-                BEST PRICES
-              </span>
-
-            </div>
-
-
-            {/* TITLE */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-tight">
-              Elevate Your
-              <br />
-              <span className="text-blue-500">
-                Shopping Sphere
-              </span>
-            </h1>
-
-
-            {/* DESCRIPTION */}
-            <p className="text-base md:text-lg text-gray-300 leading-relaxed max-w-xl">
-              Explore a world of premium products curated just for you.
-              <br />
-              Fast delivery, secure payments, and a seamless experience.
-            </p>
-            {/* BUTTONS */}
-            <div
-              ref={buttonRef}
-              className="flex flex-wrap items-center gap-4">
-              <button
-                className="
-                  bg-blue-600
-                  hover:bg-blue-700
-                  text-white
-                  font-bold
-                  py-3.5
-                  px-8
-                  rounded-full
-                  transition-all
-                  duration-300
-                  shadow-lg
-                  hover:shadow-blue-500/50
-                  hover:-translate-y-1">
-                Shop Now
-                <span className="ml-2">
-                  →
-                </span>
-              </button>
-              <button
-                className="
-                  border
-                  border-white/70
-                  text-white
-                  font-semibold
-                  py-3.5
-                  px-8
-                  rounded-full
-                  hover:bg-white
-                  hover:text-black
-                  transition-all
-                  duration-300">
-                Explore Collection
-              </button>
-            </div>
-
-            {/* HERO FEATURES */}
-            <div className="flex flex-wrap items-center gap-8 md:gap-10 pt-4">
-              {/* FREE DELIVERY */}
-              <div className="flex items-center gap-3">
-                <span className="text-blue-400 text-2xl">
-                  🏷️ 
-                </span>
-                <div>
-                  <p className="text-white text-sm font-semibold">
-                    1000+ Products
-                  </p>
-                  <p className="text-gray-400 text-xs">
-                    Explore wide collection
-                  </p>
-                </div>
-              </div>
- 
-
-              {/* SECURE PAYMENT */}
-              <div className="flex items-center gap-3">
-                <span className="text-blue-400 text-2xl">
-                  🔥 
-                </span>
-                <div>
-                  <p className="text-white text-sm font-semibold">
-                    Daily Deals
-                  </p>
-                  <p className="text-gray-400 text-xs">
-                    Fresh offers every day
-                  </p>
-                </div>
-              </div>
-
-
-              {/* SUPPORT */}
-              <div className="flex items-center gap-3">
-                <span className="text-blue-400 text-2xl">
-                  ⭐ 
-                </span>
-                <div>
-                  <p className="text-white text-sm font-semibold">
-                    Top Rated
-                  </p>
-                  <p className="text-gray-400 text-xs">
-                    Loved by our customers
-                  </p>
-                </div>
-              </div>
-
-            </div>
-
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
+   
+   <div ref={textRef} className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+    <div className="
+          mb-6
+          inline-flex
+          items-center
+          gap-2
+          rounded-full
+          border
+          border-white/10
+          bg-white/[0.04]
+          px-3.5
+          py-2
+          rounded-full
+         bg-blue-500
+        shadow-[0_0_10px_rgba(59,130,246,0.8)]">
+    <span className="
+            text-[10px]
+            font-semibold
+            uppercase
+            tracking-[0.16em]
+            text-shadow-black-300
+            sm:text-xs">
+            ShopSphere • Modern Shopping
+          </span>
           </div>
 
-        </div>
-      </section>
+      <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">  Everything you need.
+        <br className="hidden lg:inline-block"/>All in one place.
+      </h1>
+      <p className="mb-8 leading-relaxed">
+        Discover quality products, everyday essentials and
+          great finds — all in one simple shopping experience.
+        </p>
+      <div className="flex justify-center">
+        <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Shop Now</button>
+        <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Explore Categories</button>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* BENEFITS SLIDER */}
 <section className="w-full bg-gray-50 border-y border-gray-200 overflow-hidden py-5 shadow-sm">
