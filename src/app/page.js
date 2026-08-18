@@ -54,8 +54,7 @@ export default function Home() {
 
   return (
   <main className="">
-    <section className="text-gray-600 body-font   bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
-     
+    <section className="text-gray-600 body-font bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100 border-b border-blue-100/60">
 <div className="relative mx-auto w-fit p-[2px] overflow-hidden rounded-xl">
 
   {/* Moving border */}
@@ -87,7 +86,7 @@ export default function Home() {
   </h1>
 
 </div>
-      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-start">
+      <div className="container mx-auto flex px-5 py-16 md:flex-row flex-col items-start">
      <div className="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-10 md:mb-0">
     <Swiper
     modules={[Autoplay]}

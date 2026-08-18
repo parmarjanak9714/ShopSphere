@@ -36,9 +36,9 @@ const Footer = () => {
             <h2 className="title-font font-bold text-white font-semibold tracking-[0.15em] text-xs mb-4">SHOP</h2>
             <nav className="list-none mb-10 space-y-2">
               <li><Link href="/products" className="text-gray-400 hover:text-white transition text-sm">All Products</Link></li>
-              <li><Link href="/products" className="text-gray-400 hover:text-white transition text-sm">Deals</Link></li>
-              <li><Link href="/products" className="text-gray-400 hover:text-white transition text-sm">My Cart</Link></li>
-              <li><Link href="/products" className="text-gray-400 hover:text-white transition text-sm">Categories</Link></li>
+              <li><Link href="/deals" className="text-gray-400 hover:text-white transition text-sm">Deals</Link></li>
+              <li><Link href="/cart" className="text-gray-400 hover:text-white transition text-sm">My Cart</Link></li>
+              <li><Link href="/categories" className="text-gray-400 hover:text-white transition text-sm">Categories</Link></li>
             </nav>
           </div>
 
@@ -46,10 +46,10 @@ const Footer = () => {
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2 className="title-font font-bold text-white font-semibold tracking-[0.15em] text-xs mb-4">COMPANY</h2>
             <nav className="list-none mb-10 space-y-2">
-              <li><Link href="/products" className="text-gray-400 hover:text-white transition text-sm">About Us</Link></li>
-              <li><Link href="/products" className="text-gray-400 hover:text-white transition text-sm">Our Story</Link></li>
-              <li><Link href="/products" className="text-gray-400 hover:text-white transition text-sm">Contact Us</Link></li>
-              <li><Link href="/products" className="text-gray-400 hover:text-white transition text-sm">Privacy Policy</Link></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-white transition text-sm">About Us</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">Our Story</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">Contact Us</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">Privacy Policy</Link></li>
             </nav>
           </div>
 
@@ -57,10 +57,10 @@ const Footer = () => {
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2 className="title-font font-bold text-white font-semibold tracking-[0.15em] text-xs mb-4">SUPPORT</h2>
             <nav className="list-none mb-10 space-y-2">
-              <li><Link href="/products" className="text-gray-400 hover:text-white transition text-sm">Help Center</Link></li>
-              <li><Link href="/products" className="text-gray-400 hover:text-white transition text-sm">Shipping Info</Link></li>
-              <li><Link href="/products" className="text-gray-400 hover:text-white transition text-sm">Returns</Link></li>
-              <li><Link href="/products" className="text-gray-400 hover:text-white transition text-sm">FAQs</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">Help Center</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">Shipping Info</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">Returns</Link></li>
+              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">FAQs</Link></li>
             </nav>
           </div>
 
