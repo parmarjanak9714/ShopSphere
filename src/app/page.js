@@ -87,8 +87,8 @@ export default function Home() {
   </h1>
 
 </div>
-      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-     <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-start">
+     <div className="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-10 md:mb-0">
     <Swiper
     modules={[Autoplay]}
     slidesPerView={1}
@@ -98,10 +98,10 @@ export default function Home() {
       disableOnInteraction: false,
     }}
     speed={800}
-    className="w-full">
+    className="w-full aspect-[6/5]">
 
     {heroImages.map((image, index) => (
-      <SwiperSlide key={index}>
+      <SwiperSlide key={index} className="h-full">
         <div className="flex items-center justify-center">
           <Image
             src={image}
@@ -110,11 +110,11 @@ export default function Home() {
             height={600}
             priority={index === 0}
             className="
+              h-full
               w-full
-              h-auto
-              rounded-2xl
-              object-contain
-              object-center"/>
+            rounded-2xl
+            object-contain
+            object-center"/>
         </div>
       </SwiperSlide>
     ))}
@@ -154,15 +154,15 @@ export default function Home() {
         Discover quality products, everyday essentials and
           great finds — all in one simple shopping experience.
         </p>
-      <div className="flex justify-center">
+      <div className="flex justify-center gap-4">
         <button 
         onClick={()=> router.push("/products")}
-        className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg h-12 whitespace-nowrap items-center justify-center">
+        className="cursor-pointer inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg h-12 whitespace-nowrap items-center justify-center">
           Shop Now
           </button>
         <button 
         onClick={()=>router.push("/categories")}
-        className="h-12 whitespace-nowrap items-center justify-center inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
+        className="cursor-pointer h-12 whitespace-nowrap items-center justify-center inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-3 focus:outline-none hover:bg-gray-200 rounded text-lg">
           Explore Categories
           </button>
       </div>
