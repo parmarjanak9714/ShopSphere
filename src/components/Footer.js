@@ -17,10 +17,9 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* જમણો ભાગ: ૪ કેટેગરીઝ કોલમ ગ્રીડ */}
+    
         <div className="grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
           
-          {/* કોલમ ૧ */}
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2 className="title-font font-bold text-white font-semibold tracking-[0.15em] text-xs mb-4">CATEGORIES</h2>
             <nav className="list-none mb-10 space-y-2">
@@ -31,7 +30,6 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* કોલમ ૨ */}
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2 className="title-font font-bold text-white font-semibold tracking-[0.15em] text-xs mb-4">SHOP</h2>
             <nav className="list-none mb-10 space-y-2">
@@ -42,39 +40,36 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* કોલમ ૩ */}
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2 className="title-font font-bold text-white font-semibold tracking-[0.15em] text-xs mb-4">COMPANY</h2>
             <nav className="list-none mb-10 space-y-2">
               <li><Link href="/about" className="text-gray-400 hover:text-white transition text-sm">About Us</Link></li>
-              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">Our Story</Link></li>
-              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">Contact Us</Link></li>
-              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">Privacy Policy</Link></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-white transition text-sm">Our Story</Link></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-white transition text-sm">Contact Us</Link></li>
+              <li><Link href="/privacy" className="text-gray-400 hover:text-white transition text-sm">Privacy Policy</Link></li>
             </nav>
           </div>
 
-          {/* કોલમ ૪ */}
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2 className="title-font font-bold text-white font-semibold tracking-[0.15em] text-xs mb-4">SUPPORT</h2>
             <nav className="list-none mb-10 space-y-2">
-              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">Help Center</Link></li>
-              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">Shipping Info</Link></li>
-              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">Returns</Link></li>
-              <li><Link href="#" className="text-gray-400 hover:text-white transition text-sm">FAQs</Link></li>
+              <li><Link href="/help-center" className="text-gray-400 hover:text-white transition text-sm">Help Center</Link></li>
+              <li><Link href="shipping" className="text-gray-400 hover:text-white transition text-sm">Shipping Info</Link></li>
+              <li><Link href="/returns" className="text-gray-400 hover:text-white transition text-sm">Returns</Link></li>
+              <li><Link href="/faqs" className="text-gray-400 hover:text-white transition text-sm">FAQs</Link></li>
             </nav>
           </div>
 
         </div>
       </div>
 
-      {/* બોટમ પટ્ટો: કોપીરાઇટ અને સોશિયલ આઇકોન્સ */}
       <div className="bg-[#080b0f] border-t border-white/10">
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row items-center justify-between">
           <p className="text-gray-500 text-sm text-center sm:text-left">
           © {new Date().getFullYear()} ShopSphere. All rights reserved.
          </p>
           
-          {/* સોશિયલ આઇકોન્સ */}
+          
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start space-x-3">
             <a className="text-gray-400 hover:text-blue-500 transition cursor-pointer">
               <svg fill="currentColor" className="w-5 h-5" viewBox="0 0 24 24">

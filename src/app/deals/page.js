@@ -8,6 +8,7 @@ export default function Deals() {
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [timeLeft, setTimeLeft] = useState(24 * 60 * 60);
 
   useEffect(() => {
     const fetchDeals = async () => {
@@ -17,7 +18,6 @@ export default function Deals() {
         );
 
         const data = await response.json();
-
         setProducts(data.products);
       } catch (error) {
         console.log("Deals fetch error:", error);
@@ -25,9 +25,25 @@ export default function Deals() {
         setLoading(false);
       }
     };
-
     fetchDeals();
   }, []);
+
+  useEffect(() => {
+  const timer = setInterval(() => {
+    setTimeLeft((prev) => {
+      if (prev <= 0) {
+        return 24 * 60 * 60;
+      }
+
+      return prev - 1;
+    });
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, []);
+const hours = Math.floor(timeLeft / 3600);
+const minutes = Math.floor((timeLeft % 3600) / 60);
+const seconds = timeLeft % 60;
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -47,6 +63,38 @@ export default function Deals() {
           Discover amazing products at special prices and grab the
           best deals before they are gone.
         </p>
+        <p className="mt-8 text-sm font-semibold uppercase tracking-widest text-blue-400">
+  Hurry! Deals End In
+</p>
+
+        <div className="mt-8 flex justify-center gap-3">
+  <div className="rounded-xl bg-white/10 px-4 py-3 backdrop-blur-sm">
+    <div className="text-2xl font-bold">
+      {String(hours).padStart(2, "0")}
+    </div>
+    <div className="text-xs text-gray-400">
+      Hours
+    </div>
+  </div>
+
+  <div className="rounded-xl bg-white/10 px-4 py-3 backdrop-blur-sm">
+    <div className="text-2xl font-bold">
+      {String(minutes).padStart(2, "0")}
+    </div>
+    <div className="text-xs text-gray-400">
+      Minutes
+    </div>
+  </div>
+
+  <div className="rounded-xl bg-white/10 px-4 py-3 backdrop-blur-sm">
+    <div className="text-2xl font-bold">
+      {String(seconds).padStart(2, "0")}
+    </div>
+    <div className="text-xs text-gray-400">
+      Seconds
+    </div>
+  </div>
+</div>
 
       </section>
 

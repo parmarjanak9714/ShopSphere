@@ -3,6 +3,7 @@ import "./globals.css";
 import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { AuthProvider } from "@/context/AuthContext";
 
 import { CartProvider } from "@/context/CartContext";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
     >
       <body className="flex flex-col">
         <ThemeProvider>
+          <AuthProvider>
         <CartProvider>
           <Suspense fallback={null}>
             <Navbar/>
@@ -41,6 +43,7 @@ export default function RootLayout({ children }) {
           <main className="">{children}</main> 
         <Footer/>
         </CartProvider>
+        </AuthProvider>
         </ThemeProvider>
         </body>
     </html>
