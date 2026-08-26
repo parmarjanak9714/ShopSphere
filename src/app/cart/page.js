@@ -1,8 +1,10 @@
 "use client";
 
 import { useCart } from "@/context/CartContext";
+import { useRouter } from "next/navigation";
 
 export default function CartPage() {
+  const router = useRouter();
   
   const {
   cart,
@@ -101,19 +103,19 @@ export default function CartPage() {
                   <div className="flex items-center gap-3 mt-4">
 
                     <button onClick={() => decreaseQuantity(item.id)}
-                            className="w-9 h-9 rounded-full border border-gray-300 hover:bg-gray-100">-</button>
+                            className="cursor-pointer w-9 h-9 rounded-full border border-gray-300 hover:bg-gray-100">-</button>
                     <span className="font-semibold">
                       {item.quantity}
                     </span>
 
                     <button onClick={() => increaseQuantity(item.id)}
-                            className="w-9 h-9 rounded-full border border-gray-300 hover:bg-gray-100">+
+                            className=" cursor-pointer w-9 h-9 rounded-full border border-gray-300 hover:bg-gray-100">+
                     </button>
                   </div>
                 </div>
                 {/* REMOVE */}
                 <button onClick={() => removeFromCart(item.id)}
-                        className="text-red-500 hover:text-red-700 font-medium self-start">Remove</button>
+                        className="text-red-500 hover:text-red-700 font-medium self-start cursor-pointer">Remove</button>
               </div>
             ))}
 
@@ -151,7 +153,8 @@ export default function CartPage() {
             </div>
 
             <button
-              className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-full transition"
+            onClick={() => router.push("/checkout")}
+              className="cursor-pointer w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-full transition"
             >
               Proceed to Checkout
             </button>
